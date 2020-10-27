@@ -1,0 +1,10 @@
+.date-input{
+    padding: .2em;
+    margin-right: 1px;
+    border-radius: .2em;
+    background-color: rgb(0 0 0 / 3%);
+}
+
+.date-input:focus {
+    outline-color: transparent;
+  }

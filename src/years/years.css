@@ -1,0 +1,33 @@
+.years-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
+    height: 100%;
+  }
+  .year {
+    height: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3em;
+    box-shadow: 0px 0px 1px 0px #0000000d;
+  }
+  .year:hover {
+    box-shadow: 0 2px 4px 1px #0000000d;
+    transition: all 0.3s;
+  }
+  .year.selected {
+    background: #ffc482;
+    color: #fff;
+    font-weight: 700;
+  }
+  .year.disabled.selected {
+    background: #36976f5b;
+    color: #fff !important;
+  }
+  .year.disabled {
+    box-shadow: none;
+  }

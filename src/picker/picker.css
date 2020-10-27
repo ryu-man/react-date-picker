@@ -1,0 +1,87 @@
+.picker {
+	padding: 0.4em;
+	display: inline-flex;
+	border-radius: 0.2em;
+	box-shadow: 0 0 3px #00000040;
+}
+.picker-container {
+	position: relative;
+	display: inline-flex;
+}
+div.root {
+	border: 1.6px solid #e6e6e6;
+	border-radius: 0.3em;
+	position: relative;
+	cursor: pointer;
+	width: 224px;
+}
+div.inner {
+	min-width: fit-content;
+	width: auto;
+	padding: 0.4em;
+	padding-left: 0.8em;
+	pointer-events: none;
+}
+div.inner > .icon {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	font-size: 1.6em;
+	padding: 0 8px;
+}
+.outer-container {
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transition: none;
+	z-index: 2;
+	display: block;
+}
+.inner-container {
+	background: #fff;
+	box-shadow: 0px 4px 8px rgb(0 0 0 / 0.16);
+	padding-top: 0;
+}
+button {
+	border: none;
+	border-radius: 0.4em;
+}
+.calendar-button {
+	margin: 0 0.4em;
+	outline: none;
+}
+div.animation-target {
+  display: none;
+  opacity: 0;
+	animation-fill-mode: forwards;
+	animation-duration: 0.3s;
+	animation-delay: 0;
+	animation-direction: normal;
+	animation-iteration-count: 1;
+	animation-play-state: running;
+	animation-timing-function: ease-in-out;
+	animation-name: animate;
+}
+
+div.animation-target.in {
+  display: inline-flex;
+	animation-direction: normal;
+}
+
+div.animation-target.out {
+  display: none;
+	animation-direction: reverse;
+}
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+		transform: scaleY(0.1);
+	}
+	100% {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}

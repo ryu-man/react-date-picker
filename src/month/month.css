@@ -1,0 +1,23 @@
+.month-container {
+	display: flex;
+	flex-direction: column;
+}
+.days-container {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-row-gap: 0.6em;
+	grid-column-gap: 0.6em;
+	justify-items: center;
+}
+.labels {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	justify-items: center;
+	margin-bottom: 8px;
+}
+.label-container {
+	text-align: center;
+}
+.label {
+	font-weight: 500;
+}

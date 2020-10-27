@@ -1,0 +1,52 @@
+
+  .day-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: .2em;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color .3s;
+  }
+ 
+  .day-container:hover {
+    background-color: rgba(0, 0, 0, 0.072);
+    transition: background-color .3s;
+  }
+  .today {
+    box-shadow: 0 0 0 0.1em #66abba;
+    color: #66abba;
+  }
+  .today:hover {
+    box-shadow: 0 0 0 0.1em #66aaba91;
+  }
+  .today.selected{
+    box-shadow: 0 0 0 0.1em #66aaba73;
+
+  }
+  .selected {
+    background: #3f95a8cb !important;
+    color: #fff !important;
+  }
+  .offmonth {
+    color: rgb(216, 216, 216);
+  }
+  .offmonth.selected {
+    background: rgba(55, 172, 151, 0.253);
+    color: #ffffff;
+  }
+  .disabled,
+  .disabled.selected {
+    background-color: rgb(248 248 248) !important;
+  }
+  .weekend {
+    color: #ffc482;
+  }
+  .weekend.offmonth,
+  .weekend.disabled {
+    color: #ffc582cb;
+  }
