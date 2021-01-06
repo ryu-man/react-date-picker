@@ -2,18 +2,22 @@
 	display: flex;
 	flex-direction: column;
 }
-.days-container {
+.days {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	grid-row-gap: 0.6em;
 	grid-column-gap: 0.6em;
 	justify-items: center;
+	align-items: center;
+	text-align: center;
 }
-.labels {
+.week-days {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
-	justify-items: center;
 	margin-bottom: 8px;
+	justify-items: center;
+	align-items: center;
+	text-align: center;
 }
 .label-container {
 	text-align: center;

@@ -1,22 +1,26 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import { motion, AnimatePresence } from 'framer-motion'
+import { CalendarStateContext } from "./picker";
+import './animated_container.css'
 
-
-const AnimateContainer = ({ children, calendarState, setCalendarState }: { children: React.ReactNode, calendarState: boolean, setCalendarState: (state: boolean) => void }) => {
-    let lossFocusHandler: { (e: MouseEvent): void; (this: Document, ev: MouseEvent): any; }
+const AnimateContainer = ({ children }: { children: React.ReactNode }) => {
     let translate: { x: number, y: number } = { x: 0, y: 0 }
-
+    const [calendarState, setCalendarState] = useContext(CalendarStateContext)
     return (
         <AnimatePresence>
             {calendarState &&
-                (<motion.div
-                    ref={positionate}
-                    initial={{ position: 'absolute', top: 0, left: 0, opacity: 0, scaleY: .1 }}
-                    animate={{ opacity: 1, scaleY: 1 }}
-                    exit={{ opacity: 0, scaleY: .1 }}
-                    transition={{ duration: .2, delay: .1, ease: "backInOut" }} >
-                    {children}
-                </motion.div>)
+                (
+                    <div className="outer-animated-container" ref={positionate}>
+                        <motion.div
+
+                            initial={{ opacity: 0, scaleY: .1 }}
+                            animate={{ opacity: 1, scaleY: 1 }}
+                            exit={{ opacity: 0, scaleY: .1 }}
+                            transition={{ duration: .2, delay: .1, ease: "backInOut" }} >
+                            {children}
+                        </motion.div>
+                    </div>
+                )
             }
         </AnimatePresence>
     )
@@ -25,11 +29,13 @@ const AnimateContainer = ({ children, calendarState, setCalendarState }: { child
     function positionate(node: HTMLDivElement) {
         if (node) {
             translate = getXYTranslate(node)
+            console.log(translate)
             node.style.transform = `translate(-50%, -50%) translate(${translate.x}px, ${translate.y}px)`
         }
     }
-    function getXYTranslate(node: Element) {
+    function getXYTranslate(node: HTMLElement) {
         let dist = getDistanceToEdges(node)
+
         let x: number
         let y: number
 
@@ -51,8 +57,8 @@ const AnimateContainer = ({ children, calendarState, setCalendarState }: { child
         }
         return { x, y }
     }
-    function getDistanceToEdges(node: Element) {
-        const rect = (node as HTMLElement)?.getBoundingClientRect()
+    function getDistanceToEdges(node: HTMLElement) {
+        const rect = node?.getBoundingClientRect()
         const { x, y } = translate
         return {
             top: rect.top + (-1 * y),

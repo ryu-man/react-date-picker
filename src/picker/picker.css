@@ -1,35 +1,46 @@
 .picker {
-	padding: 0.4em;
-	display: inline-flex;
-	border-radius: 0.2em;
-	box-shadow: 0 0 3px #00000040;
-}
-.picker-container {
-	position: relative;
-	display: inline-flex;
-}
-div.root {
 	border: 1.6px solid #e6e6e6;
 	border-radius: 0.3em;
 	position: relative;
 	cursor: pointer;
-	width: 224px;
+	width: fit-content;
+	padding: 0.3em;
 }
-div.inner {
+.inner-picker {
 	min-width: fit-content;
 	width: auto;
-	padding: 0.4em;
-	padding-left: 0.8em;
+	padding-left: 0.4em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.inner-picker.disabled {
+	color: rgb(112, 112, 112);
+}
+.inner-picker > .inputs {
 	pointer-events: none;
 }
-div.inner > .icon {
-	position: absolute;
-	right: 0;
-	top: 0;
-	bottom: 0;
+.icon {
 	font-size: 1.6em;
 	padding: 0 8px;
+	width: 1em;
+	display: flex;
 }
+.outer-container {
+	transform: translate(-50%, -50%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transition: none;
+	z-index: 2;
+	display: block;
+}
+.inner-container {
+	background: #fff;
+	box-shadow: 0px 4px 8px rgb(0 0 0 / 0.16);
+	padding-top: 0;
+}
+
 .outer-container {
 	transform: translate(-50%, -50%);
 	position: absolute;
@@ -52,9 +63,15 @@ button {
 	margin: 0 0.4em;
 	outline: none;
 }
+.calendar-button.right {
+	order: 1;
+}
+.calendar-button.left {
+	order: -1;
+}
 div.animation-target {
-  display: none;
-  opacity: 0;
+	display: none;
+	opacity: 0;
 	animation-fill-mode: forwards;
 	animation-duration: 0.3s;
 	animation-delay: 0;
@@ -66,12 +83,12 @@ div.animation-target {
 }
 
 div.animation-target.in {
-  display: inline-flex;
+	display: inline-flex;
 	animation-direction: normal;
 }
 
 div.animation-target.out {
-  display: none;
+	display: none;
 	animation-direction: reverse;
 }
 

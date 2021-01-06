@@ -1,52 +1,54 @@
-
-  .day-container {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    border-radius: .2em;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
-    text-align: center;
-    box-sizing: border-box;
-    transition: background-color .3s;
-  }
- 
-  .day-container:hover {
-    background-color: rgba(0, 0, 0, 0.072);
-    transition: background-color .3s;
-  }
-  .today {
-    box-shadow: 0 0 0 0.1em #66abba;
-    color: #66abba;
-  }
-  .today:hover {
-    box-shadow: 0 0 0 0.1em #66aaba91;
-  }
-  .today.selected{
-    box-shadow: 0 0 0 0.1em #66aaba73;
-
-  }
-  .selected {
-    background: #3f95a8cb !important;
-    color: #fff !important;
-  }
-  .offmonth {
-    color: rgb(216, 216, 216);
-  }
-  .offmonth.selected {
-    background: rgba(55, 172, 151, 0.253);
-    color: #ffffff;
-  }
-  .disabled,
-  .disabled.selected {
-    background-color: rgb(248 248 248) !important;
-  }
-  .weekend {
-    color: #ffc482;
-  }
-  .weekend.offmonth,
-  .weekend.disabled {
-    color: #ffc582cb;
-  }
+:root {
+  --day-width: 1.5em;
+}
+.day {
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: calc(var(--border-radius) * 1.618);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day:hover {
+  background-color: rgba(0, 0, 0, 0.072);
+}
+.day > .value {
+  color: rgb(36, 36, 36);
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+}
+.today:not(.selected) {
+  box-shadow: 0 0 0vw 0.1em var(--today-background);
+}
+.selected {
+  background: var(--selected-background) !important;
+}
+.selected .value {
+  font-weight: 700;
+  color: var(--selected-color) !important;
+}
+.offmonth .value {
+  color: var(--offmonth-color);
+}
+.offmonth.selected {
+  background: var(--offmonth-background-color);
+}
+.disabled {
+  background-color: var(--disabled--background-color) !important;
+  pointer-events: none;
+}
+.disabled .value, .disabled.weekend .value{
+  color: var(--disabled-color) !important;
+  pointer-events: none;
+}
+.weekend .value {
+  color: var(--weekend-color) !important;
+}
+.weekend.selected .value {
+  color: var(--selected-color) !important;
+}
+.weekend.offmonth .value,
+.weekend.disabled .value {
+  color: var(--weekend-color);
+}

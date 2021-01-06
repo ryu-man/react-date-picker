@@ -1,0 +1,78 @@
+.options {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	overflow: hidden;
+	backdrop-filter: blur(8px);
+	z-index: 0;
+	border-radius: var(--border-radius);
+	box-sizing: border-box;
+}
+.options-container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0.6em;
+}
+
+.years-container {
+	flex: 1;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	justify-content: center;
+	align-items: center;
+}
+.years {
+	/* position: absolute; */
+	text-align: center;
+}
+.year {
+	padding: 0.6em;
+	border-radius: var(--border-radius);
+	font-size: 1.2em;
+	transition: all 0.3s;
+	cursor: pointer;
+}
+.months-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.7em;
+	font-size: 0.8em;
+}
+.months {
+	/* position: absolute; */
+	text-align: center;
+}
+.month {
+	padding: 0 0.2em;
+	font-size: 0.8em;
+	cursor: pointer;
+	border-radius: var(--border-radius);
+}
+
+.year.selected {
+	background-color: var(--weekend-color) !important;
+	border-radius: var(--border-radius) !important;
+	color: #fff;
+	transition: all 0.3s;
+}
+.month.selected {
+	color: var(--weekend-color) !important;
+	background-color: transparent !important;
+	border-bottom: 2px solid var(--weekend-color);
+	font-weight: 700;
+}
+.navigation.buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--weekend-color);
+	cursor: pointer;
+}
+.navigation.buttons > .button {
+	width: 36px;
+}

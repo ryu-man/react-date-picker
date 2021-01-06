@@ -3,18 +3,38 @@
 	color: #dddddd !important;
 }
 .calendar-container {
+	--border-radius: 0.3em;
 	min-width: fit-content;
-	width: 320px;
-	height: 380px;
+	width: fit-content;
+	height: fit-content;
 	box-sizing: border-box;
-	/* position: absolute; */
 	display: flex;
 	flex-direction: column;
 	padding: 0.7em;
 	background-color: #ffffff;
 	box-shadow: 0 0 4px 0px #00000040;
-	border-radius: 0.3em;
+	border-radius: var(--border-radius);
+
+	--background: #fff;
+	--color: rgb(32, 32, 32);
+	--weekend-background: rgb(66, 141, 129);
+	--weekend-color: rgb(175, 76, 76);
+	--selected-background: var(--weekend-color);
+	--selected-color: #fff;
+	--today-background: var(--weekend-color);
+	--today-color: rgb(160, 80, 80);
+	--disabled-background: rgb(201, 201, 201);
+	--disabled-color: rgb(226, 226, 226);
+	--offmonth-background: #fff;
+	--offmonth-color: rgb(184, 184, 184);
+	--header-background: #fff;
+	--header-color: #fff;
+	--week-days-background: #fff;
+	--week-days-color: #fff;
+
+	--day-radius: 0;
 }
+
 .calendar-inner {
 	position: absolute;
 	top: 0;
