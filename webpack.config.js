@@ -6,7 +6,7 @@ const isProduction = false;
 const isDevelopment = !isProduction;
 
 module.exports = {
-    entry: "./src/index.tsx",
+    entry: path.resolve(__dirname,"src/index.tsx"),
     mode: 'development',
     output: {
         path: path.join(__dirname, 'dist'),
@@ -48,40 +48,14 @@ module.exports = {
     },
     module: {
         rules: [
-
             {
-                test: /\.css$/i,
-                use: [{
-                    loader: MiniCssExtractPlugin.loader, options: {
-                        publicPath: 'dist'
-                    }
-                }, {
-                    loader: 'css-loader',
-                    options: {
-                        modules: false,
-                        // minimize:true,
-                        // importLoaders:1
-                    }
-
-                }],
-            },
-
-            {
-                test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: '/node_modules/'
-            },
-            {
-                test: /\.jsx?$/,
+                test: /\.(js|ts)x?$|/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        cacheDirectory: true,
-                        cacheCompression: false,
-                        envName: isProduction ? "production" : "development"
-                    }
-                }
+                use: "babel-loader"
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             }
         ]
     }
