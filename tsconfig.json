@@ -16,14 +16,15 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
+    "noEmit": true,
     "noEmitOnError": false,
     "jsx": "react",
     "declaration": true,
     "declarationDir": "@types",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "noFallthroughCasesInSwitch": true,
   },
   "include": [
-    "src"
+    "src",
   ]
 }
